@@ -1,3 +1,33 @@
+$('.addButton').on('click',function(){
+  addItemHandler();
+});
+
+function addItemHandler(){
+  let inputValue = document.querySelector('#todoInput');
+  let newEl = document.createElement('li');
+  let newItem = document.createTextNode(inputValue.value);
+  newEl.appendChild(newItem); 
+
+  let newButtonElement = document.createElement('Button');
+  newButtonElement.className = 'deleteButton';
+  let textButton = document.createTextNode('DELETE ME');
+  newButtonElement.appendChild(textButton);
+
+  newButtonElement.addEventListener('click', function(){
+    this.parentElement.remove();
+  });
+
+  newEl.appendChild(newButtonElement);
+
+  document.querySelector('.todoList').appendChild(newEl);
+  inputValue.value = '';
+
+};
+
+
+
+
+
 // // var firstName = 'Tatiana';
 // // var array = [1,2,3,'123'];
 // // var bool = true;
@@ -60,23 +90,6 @@
 // // console.log(numArray);
 // //
 // // numArray.map( function(on))
-$('.addButton').on('click',function(){
-  onClickHandler();
-});
-
-function onClickHandler(){
-  let input = document.querySelector('#todoInput');
-
-  let value = input.value;
-  let list = document.querySelector('.todoList');
 
 
-  let newListElement = document.createElement('li'); //<li> </li>
-  newListElement.innerHTML = value;
 
-  list.appendChild(newListElement);
-
-  input.value = '';
-
-  console.log(value)
-}
